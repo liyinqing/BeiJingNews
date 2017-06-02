@@ -10,7 +10,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
-import atguigu.com.beijingnews.activity.MainActivity;
+import atguigu.com.beijingnews.activity.GuideActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -48,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this,GuideActivity.class));
                 finish();
             }
 
