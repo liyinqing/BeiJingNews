@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
+
 import atguigu.com.beijingnews.R;
 import atguigu.com.beijingnews.fragment.ContentFragment;
 import atguigu.com.beijingnews.fragment.LeftFragment;
@@ -29,7 +30,6 @@ public class MainActivity extends SlidingFragmentActivity {
 
         ft.replace(R.id.fl_left,new LeftFragment(),LEFT_TAG);
         ft.replace(R.id.fl_main,new ContentFragment(),MAIN_TAG);
-
         ft.commit();
     }
 
@@ -48,5 +48,11 @@ public class MainActivity extends SlidingFragmentActivity {
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
         //设置主页面占的宽度
         slidingMenu.setBehindOffset(200);
+    }
+
+    public LeftFragment getLeftFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        LeftFragment leftFragment = (LeftFragment) fm.findFragmentByTag(LEFT_TAG);
+        return leftFragment;
     }
 }
