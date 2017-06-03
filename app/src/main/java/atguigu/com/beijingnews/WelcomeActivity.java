@@ -11,6 +11,8 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 import atguigu.com.beijingnews.activity.GuideActivity;
+import atguigu.com.beijingnews.activity.MainActivity;
+import atguigu.com.beijingnews.utils.CacheUtils;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -48,7 +50,12 @@ public class WelcomeActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivity(new Intent(WelcomeActivity.this,GuideActivity.class));
+                boolean isStartMain =  CacheUtils.getBoolean(WelcomeActivity.this,"start_main");
+                if(isStartMain){
+                    startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+                }else {
+                    startActivity(new Intent(WelcomeActivity.this,GuideActivity.class));
+                }
                 finish();
             }
 

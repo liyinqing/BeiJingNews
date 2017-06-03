@@ -1,5 +1,6 @@
 package atguigu.com.beijingnews.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,6 +16,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 
 import atguigu.com.beijingnews.R;
+import atguigu.com.beijingnews.utils.CacheUtils;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -55,7 +57,6 @@ public class GuideActivity extends AppCompatActivity {
                 ivPointRad.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 //间距
                 leftMargin =  llPointGroup.getChildAt(1).getLeft()-llPointGroup.getChildAt(0).getLeft();
-
             }
         });
     }
@@ -155,6 +156,8 @@ public class GuideActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_start_main)
     public void onViewClicked() {
-
+        CacheUtils.putBoolean(this,"start_main",true);
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 }
